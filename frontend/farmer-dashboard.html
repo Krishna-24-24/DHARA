@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard - DHARA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <span class="logo-icon">🌾</span>
+                    <span class="logo-text">DHARA</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <span class="nav-link">Farmer Dashboard</span>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="user-role-badge farmer">🌾 Farmer</div>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section" style="display: block; padding-top: 100px;">
+        <div class="container">
+            <div class="dashboard-header-bar">
+                <div class="dashboard-title-section">
+                    <h2>Farmer Dashboard</h2>
+                    <p>Register crops, create tokens, and manage your agricultural assets</p>
+                </div>
+                
+                <div class="dashboard-stats-mini">
+                    <div class="stat-mini">
+                        <div class="stat-mini-value" id="myTotalCrops">0</div>
+                        <div class="stat-mini-label">My Crops</div>
+                    </div>
+                    <div class="stat-mini">
+                        <div class="stat-mini-value" id="myTotalTokens">0</div>
+                        <div class="stat-mini-label">My Tokens</div>
+                    </div>
+                    <div class="stat-mini">
+                        <div class="stat-mini-value" id="myListedTokens">0</div>
+                        <div class="stat-mini-label">Listed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="register">
+                    <span class="tab-icon">📝</span>
+                    <span>Register Crop</span>
+                </button>
+                <button class="tab-btn" data-tab="myTokens">
+                    <span class="tab-icon">🌾</span>
+                    <span>My Tokens</span>
+                </button>
+                <button class="tab-btn" data-tab="audit">
+                    <span class="tab-icon">🔐</span>
+                    <span>Audit Trail</span>
+                </button>
+            </div>
+
+            <!-- Register Crop Tab -->
+            <div class="tab-content active" id="registerTab">
+                <div class="content-grid">
+                    <div class="main-panel">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Register New Crop</h3>
+                                <p>Tokenize your agricultural assets</p>
+                            </div>
+                            <form id="cropForm" class="form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Crop Type</label>
+                                        <select id="cropType" required>
+                                            <option value="">Select crop type</option>
+                                            <option value="wheat">🌾 Wheat</option>
+                                            <option value="rice">🍚 Rice</option>
+                                            <option value="cotton">☁️ Cotton</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quality Grade</label>
+                                        <select id="qualityGrade" required>
+                                            <option value="">Select grade</option>
+                                            <option value="A">Grade A - Premium</option>
+                                            <option value="B">Grade B - Standard</option>
+                                            <option value="C">Grade C - Basic</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Quantity (kg)</label>
+                                        <input type="number" id="quantity" required min="1" step="0.01" placeholder="Enter quantity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mandi Location</label>
+                                        <select id="mandiId" required>
+                                            <option value="">Select mandi</option>
+                                            <option value="PUNE-MKT-01">📍 Pune Market 01</option>
+                                            <option value="MUMBAI-MKT-02">📍 Mumbai Market 02</option>
+                                            <option value="NASHIK-MKT-03">📍 Nashik Market 03</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Farmer ID</label>
+                                    <input type="text" id="farmerId" required placeholder="Auto-filled" readonly>
+                                </div>
+
+                                <button type="submit" class="btn-primary btn-large">
+                                    <span>Register & Tokenize Crop</span>
+                                    <span class="btn-arrow">→</span>
+                                </button>
+                            </form>
+
+                            <div id="registerResult" class="result-message"></div>
+                        </div>
+                    </div>
+
+                    <div class="side-panel">
+                        <div class="info-card">
+                            <h3>Quick Guide</h3>
+                            <div class="guide-steps">
+                                <div class="guide-step">
+                                    <span class="guide-number">1</span>
+                                    <p>Fill in crop details and quality grade</p>
+                                </div>
+                                <div class="guide-step">
+                                    <span class="guide-number">2</span>
+                                    <p>System auto-generates unique token</p>
+                                </div>
+                                <div class="guide-step">
+                                    <span class="guide-number">3</span>
+                                    <p>List token on marketplace for trading</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" style="margin-top: 1.5rem;">
+                            <h3>Benefits</h3>
+                            <ul class="benefit-list">
+                                <li>⚡ Instant tokenization</li>
+                                <li>🔒 Secure ownership</li>
+                                <li>💰 Fair pricing via oracle</li>
+                                <li>📊 Full traceability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Tokens Tab -->
+            <div class="tab-content" id="myTokensTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>My Crop Tokens</h3>
+                        <p>View and manage your registered crops</p>
+                    </div>
+                    <div id="myTokensList" class="marketplace-grid"></div>
+                </div>
+            </div>
+
+            <!-- Audit Trail Tab -->
+            <div class="tab-content" id="auditTab">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Blockchain Audit Trail</h3>
+                        <button class="btn-outline" onclick="verifyAuditIntegrity()">
+                            Verify Integrity
+                        </button>
+                    </div>
+                    <div id="verificationResult" class="verification-result"></div>
+                    <div id="auditTrail" class="audit-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">🌾</span>
+                    <span class="logo-text">DHARA</span>
+                </div>
+                <p>Revolutionizing agricultural settlements with blockchain technology</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="index.html#support">Support</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">API</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="compliance.html">Compliance</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DHARA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="farmer-script.js"></script>
+</body>
+</html>
