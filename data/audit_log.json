@@ -1,0 +1,54 @@
+[
+  {
+    "event_id": "EVENT_20260207213025836404",
+    "event_type": "TOKEN_CREATED",
+    "actor": "FARMER_001",
+    "timestamp": "2026-02-07 21:30:25.836404",
+    "data": {
+      "token_id": "TOKEN_20260207213025831999",
+      "crop_id": "CROP_WHEAT_20260207213025827462"
+    },
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "current_hash": "fc6eddbf73b67fdebc407695d06b8c82956061d0e857aae546ec4f9bba9de087"
+  },
+  {
+    "event_id": "EVENT_20260207213025866724",
+    "event_type": "CROP_REGISTERED",
+    "actor": "FARMER_001",
+    "timestamp": "2026-02-07 21:30:25.866724",
+    "data": {
+      "crop_id": "CROP_WHEAT_20260207213025827462",
+      "crop_type": "wheat",
+      "quantity": 1000.0,
+      "quality_grade": "A"
+    },
+    "previous_hash": "fc6eddbf73b67fdebc407695d06b8c82956061d0e857aae546ec4f9bba9de087",
+    "current_hash": "138d870036cdfe91a724972852e8d89b50e166d68d1bbf62293a9779df39ba51"
+  },
+  {
+    "event_id": "EVENT_20260207213129947531",
+    "event_type": "TOKEN_LISTED",
+    "actor": "FARMER_001",
+    "timestamp": "2026-02-07 21:31:29.947531",
+    "data": {
+      "token_id": "TOKEN_20260207213025831999"
+    },
+    "previous_hash": "138d870036cdfe91a724972852e8d89b50e166d68d1bbf62293a9779df39ba51",
+    "current_hash": "31b756064c9110d8a21b916d3522328cc902f028e449e1b85bc52705edced723"
+  },
+  {
+    "event_id": "EVENT_20260207213208056806",
+    "event_type": "TRADE_SETTLED",
+    "actor": "TRADER_001",
+    "timestamp": "2026-02-07 21:32:08.056806",
+    "data": {
+      "token_id": "TOKEN_20260207213025831999",
+      "settlement_id": "SETTLEMENT_20260207213208032886",
+      "seller": "FARMER_001",
+      "buyer": "TRADER_001",
+      "amount": 22500.0
+    },
+    "previous_hash": "31b756064c9110d8a21b916d3522328cc902f028e449e1b85bc52705edced723",
+    "current_hash": "498d45c52c64741b20a7d8b6246d8bd2ff8f6f84aad58b11d7223805617d99b6"
+  }
+]

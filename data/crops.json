@@ -1,0 +1,11 @@
+[
+  {
+    "crop_id": "CROP_WHEAT_20260207213025827462",
+    "crop_type": "wheat",
+    "quantity": 1000.0,
+    "quality_grade": "A",
+    "mandi_id": "PUNE-MKT-01",
+    "farmer_id": "FARMER_001",
+    "timestamp": "2026-02-07 21:30:25.827462"
+  }
+]
