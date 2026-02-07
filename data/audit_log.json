@@ -50,5 +50,109 @@
     },
     "previous_hash": "31b756064c9110d8a21b916d3522328cc902f028e449e1b85bc52705edced723",
     "current_hash": "498d45c52c64741b20a7d8b6246d8bd2ff8f6f84aad58b11d7223805617d99b6"
+  },
+  {
+    "event_id": "EVENT_20260208012638763390",
+    "event_type": "TOKEN_CREATED",
+    "actor": "FARMER_002",
+    "timestamp": "2026-02-08 01:26:38.763390",
+    "data": {
+      "token_id": "TOKEN_20260208012638759262",
+      "crop_id": "CROP_WHEAT_20260208012638755318"
+    },
+    "previous_hash": "498d45c52c64741b20a7d8b6246d8bd2ff8f6f84aad58b11d7223805617d99b6",
+    "current_hash": "32fafbe545cabe46535e83e312e328b97c56fc842d7d53b152310705e247969a"
+  },
+  {
+    "event_id": "EVENT_20260208012638767265",
+    "event_type": "CROP_REGISTERED",
+    "actor": "FARMER_002",
+    "timestamp": "2026-02-08 01:26:38.767265",
+    "data": {
+      "crop_id": "CROP_WHEAT_20260208012638755318",
+      "crop_type": "wheat",
+      "quantity": 120.0,
+      "quality_grade": "A"
+    },
+    "previous_hash": "32fafbe545cabe46535e83e312e328b97c56fc842d7d53b152310705e247969a",
+    "current_hash": "1324d84b8930fd55c5e921533cc131246d04828f8155d0bece5954f1dec64dc9"
+  },
+  {
+    "event_id": "EVENT_20260208014347827529",
+    "event_type": "TOKEN_LISTED",
+    "actor": "FARMER_002",
+    "timestamp": "2026-02-08 01:43:47.827529",
+    "data": {
+      "token_id": "TOKEN_20260208012638759262"
+    },
+    "previous_hash": "1324d84b8930fd55c5e921533cc131246d04828f8155d0bece5954f1dec64dc9",
+    "current_hash": "5f9f51633cd750eba68b0ebd9764a03968f94f8d93619fa3c2161b0728a16960"
+  },
+  {
+    "event_id": "EVENT_20260208014409561706",
+    "event_type": "TRADE_SETTLED",
+    "actor": "BUYER_1770495237489",
+    "timestamp": "2026-02-08 01:44:09.561706",
+    "data": {
+      "token_id": "TOKEN_20260208012638759262",
+      "settlement_id": "SETTLEMENT_20260208014409551701",
+      "seller": "FARMER_002",
+      "buyer": "BUYER_1770495237489",
+      "amount": 2616.0
+    },
+    "previous_hash": "5f9f51633cd750eba68b0ebd9764a03968f94f8d93619fa3c2161b0728a16960",
+    "current_hash": "83dabe10c3b456da4703fb41987aa46cc2e968886706b4ce1855161a35a9208b"
+  },
+  {
+    "event_id": "EVENT_20260208014600687814",
+    "event_type": "TOKEN_CREATED",
+    "actor": "FARMER_002",
+    "timestamp": "2026-02-08 01:46:00.687814",
+    "data": {
+      "token_id": "TOKEN_20260208014600685953",
+      "crop_id": "CROP_WHEAT_20260208014600683861"
+    },
+    "previous_hash": "83dabe10c3b456da4703fb41987aa46cc2e968886706b4ce1855161a35a9208b",
+    "current_hash": "50b5c7de29cd6f1e8411d0ab2e0fd18c3c2cd4a0ab0e03bb8edbcfd15a0a54ff"
+  },
+  {
+    "event_id": "EVENT_20260208014600689814",
+    "event_type": "CROP_REGISTERED",
+    "actor": "FARMER_002",
+    "timestamp": "2026-02-08 01:46:00.689814",
+    "data": {
+      "crop_id": "CROP_WHEAT_20260208014600683861",
+      "crop_type": "wheat",
+      "quantity": 120.0,
+      "quality_grade": "A"
+    },
+    "previous_hash": "50b5c7de29cd6f1e8411d0ab2e0fd18c3c2cd4a0ab0e03bb8edbcfd15a0a54ff",
+    "current_hash": "6ac55fd2d32ee4293611c781099482dad72d65debe5d9d47176d0992ae0fe4cd"
+  },
+  {
+    "event_id": "EVENT_20260208014611905543",
+    "event_type": "TOKEN_LISTED",
+    "actor": "FARMER_002",
+    "timestamp": "2026-02-08 01:46:11.905543",
+    "data": {
+      "token_id": "TOKEN_20260208014600685953"
+    },
+    "previous_hash": "6ac55fd2d32ee4293611c781099482dad72d65debe5d9d47176d0992ae0fe4cd",
+    "current_hash": "f152969ff3d85671473a5d08d45471bb5d834f252f63a0ca142bbeb636e485a0"
+  },
+  {
+    "event_id": "EVENT_20260208014654299122",
+    "event_type": "TRADE_SETTLED",
+    "actor": "BUYER_1770495385347",
+    "timestamp": "2026-02-08 01:46:54.299122",
+    "data": {
+      "token_id": "TOKEN_20260208014600685953",
+      "settlement_id": "SETTLEMENT_20260208014654292130",
+      "seller": "FARMER_002",
+      "buyer": "BUYER_1770495385347",
+      "amount": 2616.0
+    },
+    "previous_hash": "f152969ff3d85671473a5d08d45471bb5d834f252f63a0ca142bbeb636e485a0",
+    "current_hash": "72e2da65d1c4f3c0b8834a84c3f911c4ece7790067bddd9e3f88e30cb61b2448"
   }
 ]
