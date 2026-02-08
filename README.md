@@ -1,73 +1,182 @@
-# 🌾 Dhara
+# 🌾 DHARA - Agricultural Settlement Platform
 
-A regulatory-compliant digital settlement system for agricultural assets using blockchain-inspired tokenization.
+**Revolutionizing Agricultural Trade with Blockchain Technology**
+
+[![Platform](https://img.shields.io/badge/Platform-Web-blue.svg)](https://github.com)
+[![Tech](https://img.shields.io/badge/Tech-Blockchain-green.svg)](https://github.com)
+[![Status](https://img.shields.io/badge/Status-Demo-orange.svg)](https://github.com)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+
+> A regulatory-compliant digital settlement system for agricultural assets using blockchain-inspired tokenization. Enables instant settlements (0.5s vs 7-15 days) with complete traceability and farmer-buyer role separation.
+
+---
 
 ## 🎯 Problem Statement
 
 India's agricultural markets involve massive value locked in crops traded through mandis, yet farmers face:
-- Slow settlements
-- Opaque pricing
-- Limited access to finance
+- **Slow Settlements**: 7-15 day settlement periods
+- **Opaque Pricing**: Lack of transparent price discovery
+- **Limited Access to Finance**: Restricted working capital
+- **Poor Record-Keeping**: Manual, error-prone documentation
 
-This system demonstrates how tokenizing real-world agricultural assets can enable faster settlement and transparency while maintaining regulatory compliance.
+DHARA demonstrates how tokenizing real-world agricultural assets can enable faster settlement and transparency while maintaining regulatory compliance.
+
+---
 
 ## ✨ Features
 
-- **Crop Asset Modeling**: Structured representation of crops with quality grades
+### 🌾 Core Platform Features
+
+- **Crop Asset Modeling**: Structured representation with quality grades (A/B/C)
 - **Digital Tokenization**: One-to-one mapping between crops and tokens
-- **Instant Settlement**: Simulated near-instant trade settlement (0.5s)
-- **Price Oracle**: Simulated mandi price feeds
-- **Audit Trail**: Tamper-evident blockchain-inspired logging
+- **Instant Settlement**: Near-instant trade settlement (~0.5 seconds)
+- **Price Oracle**: Real-time mandi price feeds (Pune, Mumbai, Nashik)
+- **Blockchain Audit Trail**: SHA-256 tamper-evident logging
 - **Compliance-First Design**: Non-speculative, settlement-only tokens
+
+### 👥 Role-Based Dashboards
+
+- **Farmer Dashboard**: Register crops, list tokens, track inventory
+- **Buyer Dashboard**: Browse marketplace, manage wallet, purchase tokens
+- **Separate Pages**: Dedicated interfaces for each user role
+- **Session Persistence**: LocalStorage-based authentication
+
+### 🎨 User Experience
+
+- **📱 Responsive Design**: Mobile, tablet, and desktop optimized
+- **📖 Documentation**: Complete platform guides and API reference
+- **⚖️ Legal Pages**: Privacy policy, terms, compliance information
+
+### 🔐 Security & Compliance
+
+- **SHA-256 Hash Chaining**: Cryptographic security
+- **Immutable Records**: Tamper-evident audit trail
+- **Integrity Verification**: Blockchain validation
+- **KYC/AML Framework**: Compliance-ready architecture
+- **💰 Wallet System**: Secure fund management for buyers
+
+---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│   Farmer    │────▶│  Crop Asset  │────▶│    Token    │
-└─────────────┘     └──────────────┘     └─────────────┘
-                            │                     │
-                            ▼                     ▼
-                    ┌──────────────┐      ┌─────────────┐
-                    │ Price Oracle │      │  Settlement │
-                    └──────────────┘      └─────────────┘
-                            │                     │
-                            └──────────┬──────────┘
-                                       ▼
-                              ┌─────────────────┐
-                              │   Audit Trail   │
-                              └─────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                     DHARA Platform                          │
+└─────────────────────────────────────────────────────────────┘
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+   ┌────▼────┐         ┌──────▼──────┐      ┌──────▼──────┐
+   │ Farmer  │         │    Buyer    │      │   System    │
+   │Dashboard│         │  Dashboard  │      │   Admin     │
+   └────┬────┘         └──────┬──────┘      └──────┬──────┘
+        │                     │                     │
+        └─────────────────────┴─────────────────────┘
+                              │
+                    ┌─────────▼──────────┐
+                    │  Frontend Layer    │
+                    │  (HTML/CSS/JS)     │
+                    └─────────┬──────────┘
+                              │ REST API
+                    ┌─────────▼──────────┐
+                    │  Backend Layer     │
+                    │    (FastAPI)       │
+                    └─────────┬──────────┘
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+   ┌────▼─────┐        ┌──────▼──────┐      ┌─────▼──────┐
+   │   Crop   │        │ Settlement  │      │   Price    │
+   │Tokenizer │        │   Service   │      │   Oracle   │
+   └────┬─────┘        └──────┬──────┘      └─────┬──────┘
+        │                     │                     │
+        └─────────────────────┴─────────────────────┘
+                              │
+                    ┌─────────▼──────────┐
+                    │   Data Layer       │
+                    │  (JSON Storage)    │
+                    │  + Audit Trail     │
+                    └────────────────────┘
 ```
+
+---
 
 ## 🛠️ Tech Stack
 
 - **Backend**: Python + FastAPI
 - **Storage**: JSON files (simulated database)
 - **Hashing**: SHA-256 for audit trail
-- **Frontend**: HTML + CSS + Vanilla JavaScript
+- **Frontend**: HTML + CSS + JavaScript
 - **API**: RESTful architecture
+- **Persistence**: LocalStorage for sessions
+
+---
+
+## 📁 Project Structure
+
+```
+DHARA/
+│
+├── backend/
+│   ├── app.py                  # FastAPI application & routes
+│   ├── models.py               # Pydantic data models
+│   ├── services.py             # Business logic & tokenization
+│   ├── utils.py                # Helper functions
+│   └── requirements.txt        # Python dependencies
+│
+├── data/
+│   ├── audit_log.json         # Blockchain audit trail
+│   ├── crops.json             # Registered crops database
+│   ├── prices.json            # Mandi price oracle
+│   ├── settlements.json       # Settlement records
+│   └── tokens.json            # Token registry
+│
+├── frontend/
+│   ├── buyer-dashboard.html   # Buyer interface
+│   ├── buyer-script.js        # Buyer dashboard logic
+│   ├── compliance.html        # Compliance information
+│   ├── farmer-dashboard.html # Farmer interface
+│   ├── farmer-script.js      # Farmer dashboard logic
+│   ├── index.html            # Homepage with login modal
+│   ├── modal.css             # Modal & theme styles
+│   ├── privacy.html          # Privacy policy
+│   ├── script.js             # Homepage scripts
+│   ├── style.css             # Main stylesheet
+│   ├── terms.html            # Terms of service
+│
+└── README.md                  # This file
+├── requirements.txt           # requirements
+```
+
+---
 
 ## 📋 Prerequisites
 
-- Python 3.8+
-- pip (Python package manager)
+- **Python 3.8+** ([Download](https://www.python.org/downloads/))
+- **pip** (Python package manager)
+- Modern web browser (Chrome, Firefox, Edge, Safari)
+
+---
 
 ## 🚀 Installation & Setup
 
 ### Step 1: Install Dependencies
 
 ```bash
+cd backend
 pip install -r requirements.txt
 ```
 
 ### Step 2: Initialize Data Directory
 
-The system will automatically create the `data/` directory on first run with these files:
+The system automatically creates the `data/` directory on first run with:
 - `crops.json` - Registered crops
 - `tokens.json` - Crop tokens
 - `settlements.json` - Settlement records
 - `audit_log.json` - Tamper-evident audit trail
-- `prices.json` - Mandi price oracle data (pre-populated)
+- `prices.json` - Mandi price oracle (pre-populated)
+
+---
 
 ## ▶️ Running the Application
 
@@ -78,59 +187,106 @@ cd backend
 python app.py
 ```
 
-The API server will start at `http://localhost:8000`
+✅ API server starts at `http://localhost:8000`
 
-### Open the Frontend
+### Start the Frontend
 
-1. Open `frontend/index.html` in your web browser
-2. Or use a simple HTTP server:
+**Option A: Simple (Double-click)**
+```bash
+cd frontend
+# Double-click index.html
+```
 
+**Option B: HTTP Server (Recommended)**
 ```bash
 cd frontend
 python -m http.server 8080
 ```
 
-Then visit `http://localhost:8080`
+✅ Frontend available at `http://localhost:8080`
+
+---
 
 ## 📖 Usage Guide
 
-### 1. Register a Crop
+### Quick Start
 
-- Navigate to "Register Crop" tab
+1. **🏠 Access Platform**: Open `http://localhost:8080`
+2. **👤 Select Role**: Click "Get Started" → Choose Farmer or Buyer
+3. **🚀 Start Trading**: Auto-redirects to role-specific dashboard
+
+---
+
+### 🌾 Farmer Workflow
+
+#### 1. Register a Crop
+
+- Navigate to **"Register Crop"** tab
 - Fill in crop details:
-  - Crop Type (wheat/rice/cotton)
-  - Quantity in kg
-  - Quality Grade (A/B/C)
-  - Mandi ID
-  - Farmer ID
-- Click "Register & Tokenize Crop"
-- System automatically creates both crop asset and digital token
+  - **Crop Type**: Wheat / Rice / Cotton
+  - **Quantity**: In kilograms
+  - **Quality Grade**: A (Premium) / B (Standard) / C (Basic)
+  - **Mandi ID**: PUNE-MKT-01 / MUMBAI-MKT-02 / NASHIK-MKT-03
+  - **Farmer ID**: Auto-filled
+- Click **"Register & Tokenize Crop"**
+- System creates crop asset + digital token
 
-### 2. List Token for Sale
+#### 2. List Token for Sale
 
-- Go to "View Tokens" tab
-- Find tokens with status "CREATED"
-- Click "List for Sale" button
-- Token status changes to "LISTED"
+- Go to **"My Tokens"** tab
+- Find tokens with status **"CREATED"**
+- Click **"List for Sale"**
+- Token status → **"LISTED"**
+- Now visible in buyer marketplace
 
-### 3. Execute Settlement
+#### 3. Track Inventory
 
-- Navigate to "Execute Settlement" tab
-- Enter Token ID and Buyer ID
-- Click "Execute Settlement"
-- System:
-  - Fetches price from oracle
-  - Calculates settlement amount
-  - Transfers token ownership
-  - Records in audit trail
-  - Completes in ~0.5 seconds
+- View all crops in **"My Tokens"**
+- Check settlement status
+- Verify in **"Audit Trail"** tab
 
-### 4. View Audit Trail
+---
 
-- Go to "Audit Trail" tab
+### 🛒 Buyer Workflow
+
+#### 1. Setup Wallet
+
+- Starting balance: **₹50,000** (demo)
+- Navigate to **"Wallet"** tab (optional)
+- Enter amount to add
+- Click **"Add Funds to Wallet"**
+
+#### 2. Browse Marketplace
+
+- Go to **"Marketplace"** tab
+- View available tokens (filter: LISTED)
+- Check details: crop type, quantity, grade, price
+
+#### 3. Execute Settlement
+
+- Select token
+- Click **"Purchase Token"**
+- Confirm transaction
+- Settlement completes in **~0.5 seconds** ⚡
+- Wallet auto-deducts
+- Ownership transferred
+
+#### 4. View Purchase History
+
+- Check **"My Purchases"** tab
+- See all settlements
+- Verify in **"Audit Trail"**
+
+---
+
+### 🔐 View Audit Trail
+
+- Navigate to **"Audit Trail"** tab
 - See complete transaction history
-- Click "Verify Integrity" to check for tampering
-- Expand hash details to see cryptographic chain
+- Click **"Verify Integrity"**
+- Expand hash details (SHA-256 chain)
+
+---
 
 ## 🔌 API Endpoints
 
@@ -157,6 +313,8 @@ Then visit `http://localhost:8080`
 - `GET /api/stats` - System statistics
 - `GET /api/compliance/report` - Compliance report
 
+---
+
 ## 🔒 Compliance & Regulatory Awareness
 
 ### Key Compliance Features
@@ -175,6 +333,8 @@ Then visit `http://localhost:8080`
 - Price determined by oracle, not market speculation
 - Settlement-focused design
 
+---
+
 ## 🧪 Testing the System
 
 ### Sample Test Flow
@@ -185,15 +345,16 @@ Then visit `http://localhost:8080`
    - Mandi: PUNE-MKT-01
 
 2. **Verify Token Creation**:
-   - Check "View Tokens" tab
-   - Token status should be "CREATED"
+   - Check "My Tokens" tab
+   - Token status: "CREATED"
 
 3. **List Token**:
    - Click "List for Sale"
-   - Status changes to "LISTED"
+   - Status → "LISTED"
 
 4. **Execute Settlement**:
-   - Buyer: `TRADER_001`
+   - Login as Buyer
+   - Purchase token
    - Settlement completes instantly
    - Token status: "SETTLED"
 
@@ -202,94 +363,91 @@ Then visit `http://localhost:8080`
    - Hash chain intact
    - No tampering detected
 
+---
+
 ## 📊 System Flow
 
 ```
-FARMER                    SYSTEM                      TRADER
-  │                         │                           │
-  │──Register Crop──────▶  │                           │
-  │                         │──Create Token──▶         │
-  │◀────Token Created──────│                           │
-  │                         │                           │
-  │──List Token─────────▶  │                           │
-  │                         │──Update Status──▶        │
-  │                         │                           │
-  │                         │◀──Accept Trade──────────│
-  │                         │──Fetch Price (Oracle)──▶ │
-  │                         │──Calculate Amount──▶     │
-  │                         │──Transfer Token──▶       │
-  │◀──Settlement Done──────│──────Settlement Done──▶  │
-  │                         │──Log Audit Entry──▶      │
+FARMER                    SYSTEM                      BUYER
+  │                         │                          │
+  │──Login (Farmer)──────▶ │                          │
+  │◀──Dashboard Loaded────│                          │
+  │                         │                          │
+  │──Register Crop──────▶  │                          │
+  │                         │──Create Token──▶        │
+  │◀────Token Created──────│                          │
+  │                         │                          │
+  │──List Token─────────▶  │                          │
+  │                         │──Update Status──▶       │
+  │                         │                          │
+  │                         │◀──Login (Buyer)─────────│
+  │                         │──Dashboard Loaded──▶    │
+  │                         │                          │
+  │                         │◀──Browse Marketplace────│
+  │                         │──Show Listed Tokens──▶  │
+  │                         │                          │
+  │                         │◀──Purchase Token────────│
+  │                         │──Check Wallet Balance──▶│
+  │                         │──Fetch Price (Oracle)──▶│
+  │                         │──Calculate Amount──▶    │
+  │                         │──Transfer Token──▶      │
+  │◀──Settlement Done──────│──Settlement Done──────▶ │
+  │                         │──Deduct Wallet──▶       │
+  │                         │──Log Audit Entry──▶     │
 ```
+
+---
+
+## 🎨 New Features
+
+### 🌓 Dark/Light Theme Toggle
+- Click moon/sun icon (top right)
+- Seamless transition
+- Saved in localStorage
+- Works on all pages
+
+### 📚 Documentation & Support
+- **FAQ Page**: 20+ questions, accordion UI
+- **Contact Form**: Multi-category system
+- **Documentation**: Complete guides
+- **Legal Pages**: Privacy, Terms, Compliance
+
+### 🎯 Role Separation
+- Dedicated dashboards
+- Session management
+- Auto-redirect protection
+- Wallet system (buyers)
+
+### 🎨 Enhanced UX
+- Support card hover colors (Blue, Green, Purple, Red)
+- Mini stats in headers
+- Status badges
+- Empty states
+
+---
 
 ## 🎓 Hackathon Demo Tips
 
 ### What to Emphasize
 
-1. **Instant Settlement**: Traditional = days, This system = 0.5 seconds
-2. **Transparency**: Full audit trail with tamper evidence
-3. **Compliance**: Regulatory-aware design, not crypto speculation
-4. **Simplicity**: No complex blockchain infrastructure needed
+1. **Speed**: 0.5s vs 7-15 days traditional settlement
+2. **Transparency**: Complete audit trail
+3. **Compliance**: Regulatory-aware design
+4. **Role Separation**: Farmer/Buyer experiences
 5. **Real Problem**: Addresses actual farmer pain points
 
 ### Demo Script
 
 1. Show empty system (stats = 0)
-2. Register 2-3 crops from different farmers
-3. List tokens
-4. Execute 1-2 settlements
-5. Show audit trail and verify integrity
-6. Highlight compliance features
+2. Login as Farmer → Register 2-3 crops
+3. List tokens for sale
+4. Login as Buyer → Purchase tokens
+5. Show instant settlement (0.5s)
+6. Verify audit trail integrity
+7. Toggle Dark/Light theme
+8. Highlight compliance features
 
-### Judge Questions - Prepared Answers
-
-**Q: Is this blockchain?**  
-A: It's inspired by blockchain principles (immutability, audit trails) but focused on settlement logic, not cryptocurrency.
-
-**Q: Is this legally compliant?**  
-A: Yes - no real transactions, simulated data, non-speculative design, full audit trail for regulators.
-
-**Q: What's the main benefit?**  
-A: Reduces settlement delay from days to seconds while maintaining full transparency and compliance.
-
-## 🐛 Troubleshooting
-
-### Backend won't start
-- Check Python version: `python --version` (need 3.8+)
-- Install dependencies: `pip install -r requirements.txt`
-- Check port 8000 is available
-
-### Frontend can't connect
-- Ensure backend is running on `http://localhost:8000`
-- Check browser console for CORS errors
-- Try different browser
-
-### Data not persisting
-- Check `data/` directory exists
-- Verify file permissions
-- Check disk space
-
-## 📁 Project Structure
-
-```
-rwa-crop-tokenizer/
-├── backend/
-│   ├── app.py           # FastAPI application
-│   ├── models.py        # Data models
-│   ├── services.py      # Business logic
-│   └── utils.py         # Helper functions
-├── data/
-│   ├── crops.json       # Crop assets
-│   ├── tokens.json      # Digital tokens
-│   ├── settlements.json # Settlement records
-│   ├── audit_log.json   # Audit trail
-│   └── prices.json      # Price oracle
-├── frontend/
-│   ├── index.html       # UI
-│   └── style.css        # Styling
-├── requirements.txt     # Dependencies
-└── README.md           # This file
-```
+---
 
 ## 🚧 Future Enhancements
 
@@ -299,11 +457,21 @@ rwa-crop-tokenizer/
 - Mobile app for farmers
 - Advanced analytics dashboard
 - Export compliance reports to PDF
+- SMS notifications
+- AI-powered price prediction
+
+---
 
 ## 👥 Team & Contact
 
-Developed for FIN-001 Hackathon Challenge  
+**Developed for FIN-001 Hackathon Challenge**  
 Focus: Real-World Asset Tokenization for Agriculture
+
+**Support**:
+- Phone: +91 9917361620
+- Email: support@dhara.platform
+
+---
 
 ## 📄 License
 
@@ -311,4 +479,25 @@ Educational/Hackathon Project - Not for Production Use
 
 ---
 
+## ⚠️ Important Disclaimer
+
+**This is a DEMONSTRATION platform.**
+
+- ❌ No real money processed
+- ❌ No actual crops traded
+- ❌ All transactions simulated
+- ❌ Not licensed for commercial use
+
 **Remember**: This is a simulation for demonstration purposes. No real money or assets are involved.
+
+---
+
+<div align="center">
+
+### 💚 Built with Love for India's Farmers 💚
+
+**DHARA** - Empowering Agriculture through Technology
+
+© 2026 DHARA Platform. All Rights Reserved.
+
+</div>
