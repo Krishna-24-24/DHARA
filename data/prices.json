@@ -1,0 +1,58 @@
+[
+  {
+    "crop_type": "wheat",
+    "mandi_id": "PUNE-MKT-01",
+    "price_per_kg": 22.5,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "rice",
+    "mandi_id": "PUNE-MKT-01",
+    "price_per_kg": 28.0,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "cotton",
+    "mandi_id": "PUNE-MKT-01",
+    "price_per_kg": 45.0,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "wheat",
+    "mandi_id": "MUMBAI-MKT-02",
+    "price_per_kg": 23.0,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "rice",
+    "mandi_id": "MUMBAI-MKT-02",
+    "price_per_kg": 29.5,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "cotton",
+    "mandi_id": "MUMBAI-MKT-02",
+    "price_per_kg": 46.5,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "wheat",
+    "mandi_id": "NASHIK-MKT-03",
+    "price_per_kg": 21.8,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  },
+  {
+    "crop_type": "rice",
+    "mandi_id": "NASHIK-MKT-03",
+    "price_per_kg": 27.5,
+    "source": "Simulated Mandi API",
+    "timestamp": "2026-02-07T10:00:00"
+  }
+]
