@@ -61,7 +61,6 @@ class AuditLogEntry(BaseModel):
             datetime: lambda v: v.isoformat()
         }
     
-    @staticmethod
     def calculate_hash(event_type: str, actor: str, timestamp: datetime, data: dict, previous_hash: str) -> str:
         """Calculate SHA-256 hash for audit trail"""
         content = f"{event_type}|{actor}|{timestamp.isoformat()}|{json.dumps(data, sort_keys=True)}|{previous_hash}"
@@ -93,4 +92,5 @@ class TokenListingRequest(BaseModel):
 
 class TradeAcceptanceRequest(BaseModel):
     token_id: str
+
     buyer_id: str
