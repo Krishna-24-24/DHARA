@@ -1,0 +1,13 @@
+[
+  {
+    "settlement_id": "SETTLEMENT_20260208082941371556",
+    "token_id": "TOKEN_20260208082738956851",
+    "seller_id": "COTTON_FARMER",
+    "buyer_id": "BUYER_1770519569535",
+    "price_per_kg": 45.0,
+    "quantity": 100.0,
+    "total_amount": 4500.0,
+    "settlement_time": "2026-02-08 08:29:41.371556",
+    "settlement_status": "COMPLETED"
+  }
+]
